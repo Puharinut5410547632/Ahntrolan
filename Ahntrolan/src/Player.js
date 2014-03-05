@@ -57,16 +57,21 @@ var Player = cc.Sprite.extend({
         
         else if((this.moveleft && this.moveRight) || (!this.moveleft && !this.moveRight)) {
             while(this.vx > 0){
-                this.vx = this.vx-0.33;
+                this.vx = this.vx-0.5;
         }
             if(this.vx< 0) this.vx == 0;
         }
     },
     
+//        decelerateX: function(){
+//            this.vx = this.vx-0.5;
+//    },
+    
         handleKeyDown: function( e ) {
             
         if ( Player.KEYMAP[ e ] != undefined ) {
             this[ Player.KEYMAP[ e ] ] = true;
+            console.log(this.vx);
         }
      
     },
