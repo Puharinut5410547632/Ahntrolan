@@ -17,9 +17,9 @@ var Player = cc.Sprite.extend({
         this.moveRight = false;
         this.jump = false;
         this.ground = null;
-    
+        this.hitleftwall = false;
+        this.hitrightwall = false;
         //Intermission or Explore
-        
         this.state = Player.State.Intermission;
 
     },
@@ -30,8 +30,6 @@ var Player = cc.Sprite.extend({
         
         this.updateXMovement();
         
-        //Jumping
-            
 
     },
     
@@ -42,16 +40,25 @@ var Player = cc.Sprite.extend({
         //Move right only when right key is held
         
         if(this.moveRight && !this.moveLeft) {
+            
+        if(this.hitrightwall) this.vx = 0;
+            else {
             if(this.vx<this.maxVx) this.vx = this.vx+0.5;
             if(this.vx>this.maxVx) this.vx = this.maxVx;
+            }
             this.setPosition( new cc.Point( pos.x + this.vx, pos.y ) );
         }
 
         //Move left only when left key is held
         
         if(this.moveLeft && !this.moveRight) {
+            
+        if(this.hitleftwall)  this.vx = 0;
+            else {
             if(this.vx<this.maxVx) this.vx = this.vx+0.5;
             if(this.vx>this.maxVx) this.vx = this.maxVx;
+            }
+            
             this.setPosition( new cc.Point( pos.x - this.vx, pos.y ) );
         }
         
@@ -71,7 +78,7 @@ var Player = cc.Sprite.extend({
             
         if ( Player.KEYMAP[ e ] != undefined ) {
             this[ Player.KEYMAP[ e ] ] = true;
-            console.log(this.vx);
+  //          console.log(this.vx);
         }
      
     },
@@ -80,9 +87,13 @@ var Player = cc.Sprite.extend({
         if ( Player.KEYMAP[ e ] != undefined ) {
             this[ Player.KEYMAP[ e ] ] = false;
         }
-    }
-    
-    
+    },
+        noWall: function( ){
+        this.hitleftwall = false;
+        this.hitrightwall = false;
+        }
+        
+ 
 }); 
 
 Player.KEYMAP = {}
@@ -93,4 +104,9 @@ Player.KEYMAP[cc.KEY.up] = 'jump';
 Player.State = {
     Intermission: 1,
     Explore: 2
+};
+
+Player.Hitwall = {
+    Yes: 1,
+    No: 2
 };

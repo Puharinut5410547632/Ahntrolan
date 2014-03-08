@@ -15,7 +15,9 @@
             'src/GameLayer.js',     //add your own files in order here
             'src/Player.js',
             'src/resource.js',
-            'src/Background.js'
+            'src/Background.js',
+            'src/rightwalldetection.js',
+            'src/leftwalldetection.js'
         ]
     };
 
