@@ -2,8 +2,8 @@ var Player = cc.Sprite.extend({
     ctor: function( ) {
         
         this._super();
-        this.initWithFile( 'images/enfys/placeholder1.png' );
-        this.setAnchorPoint( cc.p( 0.0, 0 ) );
+        this.initWithFile( 'images/enfys/Ewalkright.png' );
+        this.setAnchorPoint( cc.p( 0, 0 ) );
         
         
         this.maxVx = 7;
@@ -21,13 +21,14 @@ var Player = cc.Sprite.extend({
         this.hitrightwall = false;
         //Intermission or Explore
         this.state = Player.State.Intermission;
+        this.direction = Player.Direction.Right;
 
     },
     
         update: function() {
             
         //Walking left and right
-        
+            
         this.updateXMovement();
         
 
@@ -41,6 +42,9 @@ var Player = cc.Sprite.extend({
         
         if(this.moveRight && !this.moveLeft) {
             
+            this.initWithFile( 'images/enfys/Ewalkright.png' );
+            this.setAnchorPoint( cc.p( 0, 0 ) );
+            
         if(this.hitrightwall) this.vx = 0;
             else {
             if(this.vx<this.maxVx) this.vx = this.vx+0.5;
@@ -52,7 +56,9 @@ var Player = cc.Sprite.extend({
         //Move left only when left key is held
         
         if(this.moveLeft && !this.moveRight) {
-            
+
+            this.initWithFile( 'images/enfys/Ewalkleft.png' );
+            this.setAnchorPoint( cc.p( 0, 0 ) );
         if(this.hitleftwall)  this.vx = 0;
             else {
             if(this.vx<this.maxVx) this.vx = this.vx+0.5;
@@ -70,9 +76,6 @@ var Player = cc.Sprite.extend({
         }
     },
     
-//        decelerateX: function(){
-//            this.vx = this.vx-0.5;
-//    },
     
         handleKeyDown: function( e ) {
             
@@ -98,8 +101,11 @@ var Player = cc.Sprite.extend({
 
 Player.KEYMAP = {}
 Player.KEYMAP[cc.KEY.left] = 'moveLeft';
+Player.KEYMAP[cc.KEY.a] = 'moveLeft';
 Player.KEYMAP[cc.KEY.right] = 'moveRight';
+Player.KEYMAP[cc.KEY.d] = 'moveRight';
 Player.KEYMAP[cc.KEY.up] = 'jump';
+Player.KEYMAP[cc.KEY.enter] = 'action';
 
 Player.State = {
     Intermission: 1,
@@ -109,4 +115,9 @@ Player.State = {
 Player.Hitwall = {
     Yes: 1,
     No: 2
+};
+
+Player.Direction = {
+    Right: 1,
+    Left: 2
 };
