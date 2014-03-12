@@ -20,7 +20,6 @@ var Player = cc.Sprite.extend({
         this.hitleftwall = false;
         this.hitrightwall = false;
         //Intermission or Explore
-        this.state = Player.State.Intermission;
         this.direction = Player.Direction.Right;
 
     },
@@ -81,7 +80,6 @@ var Player = cc.Sprite.extend({
             
         if ( Player.KEYMAP[ e ] != undefined ) {
             this[ Player.KEYMAP[ e ] ] = true;
-  //          console.log(this.vx);
         }
      
     },
@@ -107,10 +105,6 @@ Player.KEYMAP[cc.KEY.d] = 'moveRight';
 Player.KEYMAP[cc.KEY.up] = 'jump';
 Player.KEYMAP[cc.KEY.enter] = 'action';
 
-Player.State = {
-    Intermission: 1,
-    Explore: 2
-};
 
 Player.Hitwall = {
     Yes: 1,

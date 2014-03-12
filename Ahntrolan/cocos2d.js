@@ -17,7 +17,11 @@
             'src/resource.js',
             'src/Background.js',
             'src/rightwalldetection.js',
-            'src/leftwalldetection.js'
+            'src/leftwalldetection.js',
+            'src/objects/LielObject.js',
+            'src/objects/TalkBox.js',
+            'src/objects/VolframObject.js',
+            'src/objects/ToyboxObject.js',
         ]
     };
 
