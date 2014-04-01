@@ -58,7 +58,7 @@ var GameLayer = cc.LayerColor.extend({
     onKeyDown: function( e ) {
     if(this.state == GameLayer.State.Walk)  {  
         this.player.handleKeyDown( e );
-        if (this.interactVolfram) this.volframObject.handleKeyDown( e );
+       if (this.interactVolfram) this.volframObject.handleKeyDown( e );
         if (this.interactToybox) this.toyboxObject.handleKeyDown( e );
         if (this.interactLiel) this.lielObject.handleKeyDown( e );
     }
@@ -70,13 +70,19 @@ var GameLayer = cc.LayerColor.extend({
     onKeyUp: function( e ) {
          if(this.state == GameLayer.State.Walk)  {  
         this.player.handleKeyUp( e );
-        if (this.interactVolfram) this.volframObject.handleKeyDown( e );
-        if (this.interactToybox) this.toyboxObject.handleKeyDown( e );
-        if (this.interactLiel) this.lielObject.handleKeyDown( e );
+//        if (this.interactVolfram) this.volframObject.handleKeyUp( e );
+//        if (this.interactToybox) this.toyboxObject.handleKeyUp( e );
+//        if (this.interactLiel) this.lielObject.handleKeyUp( e );
     }
     else {
-
+//      console.log("In dialogue mode");
         }
+    },
+    
+    getState : function() {
+  
+    console.log(this.state);
+    
     },
     
     update: function() {
@@ -93,6 +99,9 @@ var GameLayer = cc.LayerColor.extend({
     
     checkInteraction: function() {
         var playerPos = this.player.getPosition()
+        
+        //Check Volfram
+        
         if ( playerPos.x >= this.volframLeftX && playerPos.x <= this.volframRightX)  {
          this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 375 ));
          this.interactVolfram = true;
@@ -100,7 +109,8 @@ var GameLayer = cc.LayerColor.extend({
          this.interactToybox = false;
          this.talkBox.setVisible(true);
         }
-        
+    
+        //Check Liel
         else if ( playerPos.x >= this.lielLeftX && playerPos.x <= this.lielRightX)  {
          this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 375 ));
          this.interactVolfram = false;
@@ -109,6 +119,7 @@ var GameLayer = cc.LayerColor.extend({
          this.talkBox.setVisible(true);
         }
         
+        //Check Toybox
         else if ( playerPos.x >= this.toyboxLeftX && playerPos.x <= this.toyboxRightX)  {
          this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 375 ));
          this.interactVolfram = false;

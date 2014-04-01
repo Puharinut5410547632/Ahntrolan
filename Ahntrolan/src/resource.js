@@ -1,4 +1,5 @@
 var g_resources = [
+    
     //image
     {src: 'images/enfys/placeholder1.png'},
     {src: 'images/enfys/Ewalkleft.png'},
@@ -8,6 +9,9 @@ var g_resources = [
     {src: 'images/Object/Idle Volfram.png'},
     {src: 'images/Object/Talk.png'},
     {src: 'images/Object/Toybox.png'},
+    {src: 'images/Object/Topchatbox.png'},
+    {src: 'images/Object/Bottomchatbox.png'},
+    
     //plist
  
     //fnt

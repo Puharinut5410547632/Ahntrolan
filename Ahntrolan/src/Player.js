@@ -12,7 +12,8 @@ var Player = cc.Sprite.extend({
         this.vx = 0;
         this.vy = 0;
         
-        //Directions        
+        //Directions
+        this.direction = Player.Direction.Right;
         this.moveLeft = false;
         this.moveRight = false;
         this.jump = false;
@@ -20,7 +21,10 @@ var Player = cc.Sprite.extend({
         this.hitleftwall = false;
         this.hitrightwall = false;
         //Intermission or Explore
-        this.direction = Player.Direction.Right;
+        
+        
+        //Convopoint
+        this.convoPoint = 0;
 
     },
     
@@ -92,6 +96,10 @@ var Player = cc.Sprite.extend({
         noWall: function( ){
         this.hitleftwall = false;
         this.hitrightwall = false;
+        },
+    
+        getconvoPoint: function( ){
+        return this.convoPoint;    
         }
         
  

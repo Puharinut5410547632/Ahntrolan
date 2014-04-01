@@ -7,7 +7,7 @@ var ToyboxObject = cc.Sprite.extend({
     
     handleKeyDown: function( e ) {
       if ( ToyboxObject.KEYMAP[ e ] == 'action' ) {
-          console.log("It's a box of toys. There's nothing much to play in it.");
+          console.log("Enfys : It's a box of toys. There's nothing much to play in it.");
       }
         
         },

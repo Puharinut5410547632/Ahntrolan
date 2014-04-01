@@ -7,7 +7,7 @@ var LielObject = cc.Sprite.extend({
     
  handleKeyDown: function( e ) {
       if ( LielObject.KEYMAP[ e ] == 'action' ) {
-          console.log("How may I help?");
+          console.log("Liel : How may I help?");
       }
         
         },
