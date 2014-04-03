@@ -10,7 +10,7 @@ var VolframObject = cc.Sprite.extend({
     handleKeyDown: function( e ) {
       if ( VolframObject.KEYMAP[ e ] == 'action' ) {
           
-//          var point = this.getconvoPoint();
+          var point = this.getconvoPoint();
           if( ( this.convo1) ) {
           console.log("Volfram : A no is a no. Go bother Liel instead.");  
           }
@@ -28,12 +28,12 @@ var VolframObject = cc.Sprite.extend({
         
         },
     
-    getconvoPoint: function ( player ) {
+    getconvoPoint: function( player ) {
         
         var point = player.getconvoPoint();
         return point;
         
-    }
+    },
     
 //    setDialogueMode: function ( GameLayer ) {
 //     

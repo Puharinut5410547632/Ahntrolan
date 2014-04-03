@@ -20,7 +20,6 @@ var Player = cc.Sprite.extend({
         this.ground = null;
         this.hitleftwall = false;
         this.hitrightwall = false;
-        //Intermission or Explore
         
         
         //Convopoint
@@ -80,27 +79,26 @@ var Player = cc.Sprite.extend({
     },
     
     
-        handleKeyDown: function( e ) {
-            
+    handleKeyDown: function( e ) {
         if ( Player.KEYMAP[ e ] != undefined ) {
             this[ Player.KEYMAP[ e ] ] = true;
         }
      
     },
 
-        handleKeyUp: function( e ) {
+    handleKeyUp: function( e ) {
         if ( Player.KEYMAP[ e ] != undefined ) {
             this[ Player.KEYMAP[ e ] ] = false;
         }
     },
-        noWall: function( ){
+    noWall: function( ){
         this.hitleftwall = false;
         this.hitrightwall = false;
         },
     
-        getconvoPoint: function( ){
+    getconvoPoint: function( ){
         return this.convoPoint;    
-        }
+        },
         
  
 }); 
