@@ -4,6 +4,7 @@ var VolframObject = cc.Sprite.extend({
         this.initWithFile( 'images/Object/Idle Volfram.png' );
         this.setAnchorPoint( cc.p( 0, 0 ) );
         this.player = new Player();
+        this.gameLayer = new GameLayer();
         this.convo1 = false;
     },
     
@@ -29,8 +30,12 @@ var VolframObject = cc.Sprite.extend({
           
           else if ( point == 1 ) {
               
-          console.log("Volfram : Woof..woof.");   
+          console.log("Volfram : Woof..woof."); 
+//          if(this.gameLayer.getState() == 2) this.gameLayer.setWalkState();
+//          else if(this.gameLayer.getState() == 1) this.gameLayer.setDialogueState();
+      
               
+        
           }
           
       }
@@ -49,6 +54,12 @@ var VolframObject = cc.Sprite.extend({
         this.player = player;
         
     },
+    
+    setGameLayer: function ( gameLayer ) {
+        
+        this.gameLayer = gameLayer;
+        
+    }
     
 //    setDialogueMode: function ( GameLayer ) {
 //     

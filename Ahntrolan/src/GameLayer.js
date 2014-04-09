@@ -60,6 +60,7 @@ var GameLayer = cc.LayerColor.extend({
         this.player.handleKeyDown( e );
         if (this.interactVolfram) {
            this.volframObject.setPlayer( this.player );
+           this.volframObject.setGameLayer( this );
            this.volframObject.handleKeyDown( e );
         }
         if (this.interactToybox) {
@@ -68,26 +69,29 @@ var GameLayer = cc.LayerColor.extend({
         }
         if (this.interactLiel) this.lielObject.handleKeyDown( e );
     }
-    else {
-        console.log("In dialogue mode");
+        else {
+        
+            console.log("In dialogue mode");
+//            this.volframObject.setPlayer( this.player );
+//            this.volframObject.setGameLayer( this );
+//            this.volframObject.handleKeyDown( e );
+        
         }
     },
 
     onKeyUp: function( e ) {
-         if(this.state == GameLayer.State.Walk)  {  
+        if(this.state == GameLayer.State.Walk)  {  
         this.player.handleKeyUp( e );
-//        if (this.interactVolfram) this.volframObject.handleKeyUp( e );
-//        if (this.interactToybox) this.toyboxObject.handleKeyUp( e );
-//        if (this.interactLiel) this.lielObject.handleKeyUp( e );
     }
+        
     else {
-//      console.log("In dialogue mode");
+      console.log("In dialogue mode");
         }
     },
     
     getState : function() {
   
-    console.log(this.state);
+    return this.state;
     
     },
     
@@ -150,6 +154,18 @@ var GameLayer = cc.LayerColor.extend({
         this.player.hitleftwall = true;
         
         else  this.player.noWall();
+    },
+    
+    setDialogueState: function ( ) {
+
+        this.state = GameLayer.State.Dialogue;
+
+    },
+    
+    setWalkState: function() {
+        
+        this.state = GameLayer.State.Walk;
+        
     },
     
 });
