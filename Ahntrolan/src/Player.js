@@ -81,7 +81,9 @@ var Player = cc.Sprite.extend({
     
     handleKeyDown: function( e ) {
         if ( Player.KEYMAP[ e ] != undefined ) {
-            this[ Player.KEYMAP[ e ] ] = true;
+            
+            if ( Player.KEYMAP[ e ] == 'check' ) console.log(this.convoPoint);
+           else this[ Player.KEYMAP[ e ] ] = true;
         }
      
     },
@@ -110,6 +112,7 @@ Player.KEYMAP[cc.KEY.right] = 'moveRight';
 Player.KEYMAP[cc.KEY.d] = 'moveRight';
 Player.KEYMAP[cc.KEY.up] = 'jump';
 Player.KEYMAP[cc.KEY.enter] = 'action';
+Player.KEYMAP[cc.KEY.shift] = 'check';
 
 
 Player.Hitwall = {

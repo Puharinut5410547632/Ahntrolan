@@ -11,6 +11,19 @@ var LielObject = cc.Sprite.extend({
       }
         
         },
+    
+    getconvoPoint: function( player ) {
+        
+        var point = player.getconvoPoint();
+        return point;
+        
+    },
+    
+     setPlayer: function ( player ) {
+        
+        this.player = player;
+        
+    },
 
 });
 

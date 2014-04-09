@@ -58,8 +58,14 @@ var GameLayer = cc.LayerColor.extend({
     onKeyDown: function( e ) {
     if(this.state == GameLayer.State.Walk)  {  
         this.player.handleKeyDown( e );
-       if (this.interactVolfram) this.volframObject.handleKeyDown( e );
-        if (this.interactToybox) this.toyboxObject.handleKeyDown( e );
+        if (this.interactVolfram) {
+           this.volframObject.setPlayer( this.player );
+           this.volframObject.handleKeyDown( e );
+        }
+        if (this.interactToybox) {
+            this.toyboxObject.setPlayer( this.player );
+            this.toyboxObject.handleKeyDown( e );
+        }
         if (this.interactLiel) this.lielObject.handleKeyDown( e );
     }
     else {
