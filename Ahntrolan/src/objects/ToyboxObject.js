@@ -3,7 +3,7 @@ var ToyboxObject = cc.Sprite.extend({
         this._super();
         this.initWithFile( 'images/Object/Toybox.png' );
         this.setAnchorPoint( cc.p( 0, 0 ) );
-        this.player = new Player();
+//        this.player = new Player();
     },
     
     handleKeyDown: function( e ) {

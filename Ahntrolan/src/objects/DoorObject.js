@@ -1,7 +1,7 @@
 var DoorObject = cc.Sprite.extend({
     ctor: function() {
         this._super();
-        this.initWithFile( 'images/Object/Idle Liel.png' );
+        this.initWithFile( 'images/Object/Door.png' );
         this.setAnchorPoint( cc.p( 0, 0 ) );
         this.player = new Player();
     },

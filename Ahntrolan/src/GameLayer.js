@@ -1,9 +1,14 @@
-var GameLayer = cc.LayerColor.extend({
-    init: function() {
+var GameLayer = cc.Node.extend({
+    ctor: function( game ) {
         
-        this._super( new cc.Color4B( 127, 127, 127, 255 ) );
-        this.setPosition( new cc.Point( 0, 0 ) );
-        this.scheduleUpdate();
+//        this._super( new cc.Color4B( 127, 127, 127, 255 ) );
+//        this.setPosition( new cc.Point( 0, 0 ) );
+//        this.scheduleUpdate();
+//        
+        
+        this._super();
+        
+        this.game = game;
         
         this.background = new Background();
         this.background.setPosition ( new cc.Point (  screenWidth/2, screenHeight/2 ) ) ;
@@ -21,9 +26,9 @@ var GameLayer = cc.LayerColor.extend({
         this.toyboxLeftX = this.toyboxObject.getPosition().x - 40;
         this.toyboxRightX = this.toyboxObject.getPosition().x + 40;
         this.addChild( this.toyboxObject , 4 );
-        
-        //Volfram
-        this.volframObject = new VolframObject();
+//        
+//        //Volfram
+        this.volframObject = new VolframObject( this );
         this.volframObject.setPosition( new cc.Point( 270, 175) );
         this.volframLeftX = this.volframObject.getPosition().x - 40;
         this.volframRightX = this.volframObject.getPosition().x + 40;
@@ -50,9 +55,9 @@ var GameLayer = cc.LayerColor.extend({
         this.interactLiel = false;
         this.interactToybox = false;
         
-        this.setKeyboardEnabled( true );
-        console.log( 'GameLayer created' );
-        return true;
+//        this.setKeyboardEnabled( true );
+//        console.log( 'GameLayer created' );
+//        return true;
     },
     
     onKeyDown: function( e ) {
@@ -168,16 +173,22 @@ var GameLayer = cc.LayerColor.extend({
         
     },
     
+    getGame: function() {
+      
+        return this.game;
+        
+    },
+    
 });
 
-var StartScene = cc.Scene.extend({
-    onEnter: function() {
-        this._super();
-        var layer = new GameLayer();
-        layer.init();
-        this.addChild( layer );
-    }
-});
+//var StartScene = cc.Scene.extend({
+//    onEnter: function() {
+//        this._super();
+//        var layer = new GameLayer();
+//        layer.init();
+//        this.addChild( layer );
+//    }
+//});
 
 GameLayer.State = {
     Walk: 1,
