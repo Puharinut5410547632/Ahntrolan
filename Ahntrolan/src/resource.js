@@ -21,6 +21,7 @@ var g_resources = [
  
     //bgm
     {src: 'sfx/bgm/int1.mp3'},
+    {src: 'sfx/bgm/stage2.mp3'},
     //effect
 
 ];

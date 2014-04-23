@@ -43,4 +43,16 @@ var GameLayer2 = cc.Node.extend({
     }
     },
     
+     checkWall: function() {
+          var playerPos = this.player.getPosition()
+        if(checkPlayerRightWallCollision(playerPos.x, this.background.rightWallX ))
+        this.player.hitrightwall = true;
+        else if (checkPlayerLeftWallCollision (playerPos.x, this.background.leftWallX ))
+        this.player.hitleftwall = true;
+        
+        else  this.player.noWall();
+    },
+    
+    
+    
     });
