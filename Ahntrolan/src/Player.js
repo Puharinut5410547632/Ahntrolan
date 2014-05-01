@@ -36,45 +36,67 @@ var Player = cc.Sprite.extend({
 
     },
     
-    updateXMovement: function() {
+    goRight: function() {
+    
+        var pos = this.getPosition();
+        
+        this.initWithFile( 'images/enfys/Ewalkright.png' );
+        this.setAnchorPoint( cc.p( 0, 0 ) );
+            
+        if(this.hitrightwall) this.vx = 0;
+        else {
+            if(this.vx<this.maxVx) this.vx = this.vx+0.5;
+            if(this.vx>this.maxVx) this.vx = this.maxVx;
+        }
+            this.setPosition( new cc.Point( pos.x + this.vx, pos.y ) );
+        
+    },
+    
+    goLeft: function() {
         
         var pos = this.getPosition();
+        
+        this.initWithFile( 'images/enfys/Ewalkleft.png' );
+        this.setAnchorPoint( cc.p( 0, 0 ) );
+    
+        if(this.hitleftwall)  this.vx = 0;
+        else {
+            if(this.vx<this.maxVx) this.vx = this.vx+0.5;
+            if(this.vx>this.maxVx) this.vx = this.maxVx;
+        }
+            
+            this.setPosition( new cc.Point( pos.x - this.vx, pos.y ) );
+        
+    },
+    
+    standStill: function() {
+        
+        this.vx = 0;
+    
+    },
+    
+    updateXMovement: function() {
         
         //Move right only when right key is held
         
         if(this.moveRight && !this.moveLeft) {
             
-            this.initWithFile( 'images/enfys/Ewalkright.png' );
-            this.setAnchorPoint( cc.p( 0, 0 ) );
+            this.goRight();
             
-        if(this.hitrightwall) this.vx = 0;
-            else {
-            if(this.vx<this.maxVx) this.vx = this.vx+0.5;
-            if(this.vx>this.maxVx) this.vx = this.maxVx;
-            }
-            this.setPosition( new cc.Point( pos.x + this.vx, pos.y ) );
         }
 
         //Move left only when left key is held
         
         if(this.moveLeft && !this.moveRight) {
 
-            this.initWithFile( 'images/enfys/Ewalkleft.png' );
-            this.setAnchorPoint( cc.p( 0, 0 ) );
-        if(this.hitleftwall)  this.vx = 0;
-            else {
-            if(this.vx<this.maxVx) this.vx = this.vx+0.5;
-            if(this.vx>this.maxVx) this.vx = this.maxVx;
-            }
-            
-            this.setPosition( new cc.Point( pos.x - this.vx, pos.y ) );
+            this.goLeft();
+
         }
         
         else if((this.moveleft && this.moveRight) || (!this.moveleft && !this.moveRight)) {
-            while(this.vx > 0){
-                this.vx = this.vx-0.5;
-        }
-            if(this.vx< 0) this.vx == 0;
+         
+            this.standStill();
+            
         }
     },
     

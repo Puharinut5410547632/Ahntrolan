@@ -6,7 +6,7 @@ var Background = cc.Sprite.extend({
         this.leftWallX = -30;
         this.rightWallX = 790;
         
-        cc.AudioEngine.getInstance().playMusic( 'sfx/bgm/int1.mp3', true );
+    //    cc.AudioEngine.getInstance().playMusic( 'sfx/bgm/int1.mp3', true );
     },
     
 });

@@ -9,8 +9,8 @@ var g_resources = [
     {src: 'images/Object/Idle Volfram.png'},
     {src: 'images/Object/Talk.png'},
     {src: 'images/Object/Toybox.png'},
-    {src: 'images/Object/Topchatbox.png'},
-    {src: 'images/Object/Bottomchatbox.png'},
+    {src: 'images/Object/Topdiabox.png'},
+    {src: 'images/Object/Bottomdiabox.png'},
     {src: 'images/background/Stage2PlaceHolder.png'},
     
     //plist

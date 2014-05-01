@@ -13,7 +13,7 @@
         //SingleEngineFile:'',
         appFiles:[
             'src/Game.js',
-            'src/GameLayer.js',     //add your own files in order here
+            'src/GameLayer.js',
             'src/Stage2/GameLayer2.js', 
             'src/Stage2/Background2.js',
             'src/Player.js',
@@ -25,6 +25,7 @@
             'src/objects/TalkBox.js',
             'src/objects/VolframObject.js',
             'src/objects/ToyboxObject.js',
+            'src/objects/DialogueBox.js',
         ]
     };
 

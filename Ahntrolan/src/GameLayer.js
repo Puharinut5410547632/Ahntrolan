@@ -1,10 +1,6 @@
 var GameLayer = cc.Node.extend({
     ctor: function( game ) {
         
-//        this._super( new cc.Color4B( 127, 127, 127, 255 ) );
-//        this.setPosition( new cc.Point( 0, 0 ) );
-//        this.scheduleUpdate();
-//        
         
         this._super();
         
@@ -13,6 +9,10 @@ var GameLayer = cc.Node.extend({
         this.background = new Background();
         this.background.setPosition ( new cc.Point (  screenWidth/2, screenHeight/2 ) ) ;
         this.addChild( this.background , 1 );
+        
+    //  var as = ["a","b"]
+    //  var bs = ["c","d"]
+    //  this.DialogueBox = new DialogueBox(this, this.as , this.bs);
         
         //Player
         this.player = new Player();
@@ -27,7 +27,7 @@ var GameLayer = cc.Node.extend({
         this.toyboxRightX = this.toyboxObject.getPosition().x + 40;
         this.addChild( this.toyboxObject , 4 );
 //        
-//        //Volfram
+        //Volfram
         this.volframObject = new VolframObject( this );
         this.volframObject.setPosition( new cc.Point( 270, 175) );
         this.volframLeftX = this.volframObject.getPosition().x - 40;
@@ -55,13 +55,11 @@ var GameLayer = cc.Node.extend({
         this.interactLiel = false;
         this.interactToybox = false;
         
-//        this.setKeyboardEnabled( true );
-//        console.log( 'GameLayer created' );
-//        return true;
     },
     
     onKeyDown: function( e ) {
-    if(this.state == GameLayer.State.Walk)  {  
+        
+    if( this.state == GameLayer.State.Walk )  {  
         this.player.handleKeyDown( e );
         if (this.interactVolfram) {
            this.volframObject.setPlayer( this.player );
@@ -74,14 +72,21 @@ var GameLayer = cc.Node.extend({
         }
         if (this.interactLiel) this.lielObject.handleKeyDown( e );
     }
-        else {
         
-            console.log("In dialogue mode");
+      else  if ( this.state == GameLayer.State.Dialogue ) {
+          
+        this.dialogueBox.handleKeyDown( e );
+          
+        }
+        
+//        else {
+//        
+//            console.log("In dialogue mode");
 //            this.volframObject.setPlayer( this.player );
 //            this.volframObject.setGameLayer( this );
 //            this.volframObject.handleKeyDown( e );
-        
-        }
+//        
+//        }
     },
 
     onKeyUp: function( e ) {
@@ -90,7 +95,7 @@ var GameLayer = cc.Node.extend({
     }
         
     else {
-      console.log("In dialogue mode");
+//      console.log("In dialogue mode");
         }
     },
     
@@ -152,9 +157,12 @@ var GameLayer = cc.Node.extend({
     },
     
     checkWall: function() {
-          var playerPos = this.player.getPosition()
+        
+        var playerPos = this.player.getPosition()
+          
         if(checkPlayerRightWallCollision(playerPos.x, this.background.rightWallX ))
         this.player.hitrightwall = true;
+        
         else if (checkPlayerLeftWallCollision (playerPos.x, this.background.leftWallX ))
         this.player.hitleftwall = true;
         
@@ -179,16 +187,17 @@ var GameLayer = cc.Node.extend({
         
     },
     
+    createDialogueBox: function(name, text) {
+     //   console.log(name[2]);
+        this.dialogueBox = new DialogueBox(this, name, text);
+        this.addChild( this.dialogueBox , 5 );
+        this.setDialogueState();
+        this.player.moveLeft = false;
+        this.player.moveRight = false;
+    },
+    
 });
 
-//var StartScene = cc.Scene.extend({
-//    onEnter: function() {
-//        this._super();
-//        var layer = new GameLayer();
-//        layer.init();
-//        this.addChild( layer );
-//    }
-//});
 
 GameLayer.State = {
     Walk: 1,
