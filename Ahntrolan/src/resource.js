@@ -12,6 +12,8 @@ var g_resources = [
     {src: 'images/Object/Topdiabox.png'},
     {src: 'images/Object/Bottomdiabox.png'},
     {src: 'images/background/Stage2PlaceHolder.png'},
+    {src: 'images/dialogue/Enfys.png'},
+    {src: 'images/dialogue/Volfram.png'},
     
     //plist
  
