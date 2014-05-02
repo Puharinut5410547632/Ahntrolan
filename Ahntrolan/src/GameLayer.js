@@ -21,7 +21,7 @@ var GameLayer = cc.Node.extend({
         this.toyboxObject = new ToyboxObject( this );
         this.toyboxObject.setPosition( new cc.Point( 60, 30) );
         this.toyboxLeftX = this.toyboxObject.getPosition().x - 40;
-        this.toyboxRightX = this.toyboxObject.getPosition().x + 40;
+        this.toyboxRightX = this.toyboxObject.getPosition().x + 60;
         this.addChild( this.toyboxObject , 4 );
 //        
         //Volfram
@@ -58,16 +58,24 @@ var GameLayer = cc.Node.extend({
         
     if( this.state == GameLayer.State.Walk )  {  
         this.player.handleKeyDown( e );
+        
         if (this.interactVolfram) {
-           this.volframObject.setPlayer( this.player );
-           this.volframObject.setGameLayer( this );
-           this.volframObject.handleKeyDown( e );
+            
+           this.volframHandle( e );
+            
         }
         if (this.interactToybox) {
-            this.toyboxObject.setPlayer( this.player );
-            this.toyboxObject.handleKeyDown( e );
+            
+            this.toyboxHandle( e );
+        
         }
-        if (this.interactLiel) this.lielObject.handleKeyDown( e );
+        
+        if (this.interactLiel) {
+            
+            this.lielHandle( e );
+            
+        }
+        
     }
         
       else  if ( this.state == GameLayer.State.Dialogue ) {
@@ -77,17 +85,44 @@ var GameLayer = cc.Node.extend({
         }
         
     },
-
+    
+    volframHandle: function ( e ) {
+        
+        this.volframObject.setPlayer( this.player );
+        this.volframObject.setGameLayer( this );
+        this.volframObject.handleKeyDown( e );
+        
+    },
+    
+    toyboxHandle: function ( e ) {
+        
+        this.toyboxObject.setPlayer( this.player );
+        this.toyboxObject.setGameLayer( this );
+        this.toyboxObject.handleKeyDown( e );
+        
+    },
+    
+    lielHandle: function ( e ) {
+        
+        this.lielObject.setPlayer( this.player );
+        this.lielObject.setGameLayer( this );
+        this.lielObject.handleKeyDown( e );
+        
+    },
+    
     onKeyUp: function( e ) {
+        
         if(this.state == GameLayer.State.Walk)  {  
-        this.player.handleKeyUp( e );
-    }
+            
+            this.player.handleKeyUp( e );
+            
+            }
 
     },
     
     getState : function() {
   
-    return this.state;
+        return this.state;
     
     },
     

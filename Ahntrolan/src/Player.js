@@ -115,15 +115,25 @@ var Player = cc.Sprite.extend({
             this[ Player.KEYMAP[ e ] ] = false;
         }
     },
+    
     noWall: function( ){
+        
         this.hitleftwall = false;
         this.hitrightwall = false;
+        
         },
     
-    getconvoPoint: function( ){
-        return this.convoPoint;    
-        },
+    getConvoPoint: function( ){
         
+        return this.convoPoint;  
+        
+        },
+    
+    increaseConvoPoint: function(){
+        
+        this.convoPoint++;
+        
+    }
  
 }); 
 
