@@ -14,7 +14,8 @@ var g_resources = [
     {src: 'images/background/Stage2PlaceHolder.png'},
     {src: 'images/dialogue/Enfys.png'},
     {src: 'images/dialogue/Volfram.png'},
-    
+    {src: 'images/dialogue/Liel.png'},
+    {src: 'images/dialogue/Gwenette.png'},
     //plist
  
     //fnt

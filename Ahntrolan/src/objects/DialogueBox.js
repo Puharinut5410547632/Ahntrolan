@@ -10,28 +10,19 @@ var DialogueBox = cc.Node.extend({
         //For name
         this.nameDiaBox = cc.Sprite.create( 'images/Object/Topdiabox.png' );
         this.addChild( this.nameDiaBox, 2 );
-        this.nameDiaBox.setPosition( new cc.Point( 512, 220 ) );
+        this.nameDiaBox.setPosition( new cc.Point( 512, 180 ) );
         //For Text
         this.textDiaBox = cc.Sprite.create( 'images/Object/Bottomdiabox.png' );
         this.addChild( this.textDiaBox, 2 );
         this.textDiaBox.setPosition( new cc.Point( 512, 100 ) );
+
+        this.point = 0;
         
-        //Initial Text
-        this.charName = cc.LabelTTF.create(this.nameTree[0], 'Arial', 25 );
-        this.charText = cc.LabelTTF.create(this.textTree[0], 'Arial', 25 );
-        
-        this.addChild( this.charName, 3 );
-        this.charName.setPosition( new cc.Point( 512,215 ) );
-        this.addChild( this.charText, 3 );
-        this.charText.setAnchorPoint( new cc.Point ( 0, 0.5 ) );
-        this.charText.setPosition( new cc.Point( 165,155 ) );
-    
-     //   var piclocation = 'images/dialogue/' + this.nameTree[0] + '.png';
-       
-        this.textPic = cc.Sprite.create('images/dialogue/' + this.nameTree[0] + '.png' );
-        this.addChild( this.textPic, 1 );
-        this.textPic.setPosition( new cc.Point( 512, 200 ) );
-        
+        this.displayName();
+        this.displayText();
+        this.displayPic();
+
+//        
         this.point = 1;
         
     },
@@ -42,27 +33,18 @@ var DialogueBox = cc.Node.extend({
         
         if ( DialogueBox.KEYMAP[ e ] == 'action' ){
 
-            this.removeChild(this.charName);
-            this.removeChild(this.charText);
-            this.removeChild(this.textPic);
+            this.cleanScreen();
             
             if ( this.point < this.nameTree.length ){
                 
                 //Name
-                this.charName = cc.LabelTTF.create( this.nameTree[this.point], 'Arial', 25 );
-                this.addChild( this.charName, 3);
-                this.charName.setPosition( new cc.Point( 512,215 ) );
+                this.displayName();
                 
                 //Text
-                this.charText = cc.LabelTTF.create( this.textTree[this.point], 'Arial', 25 );
-                this.charText.setAnchorPoint( new cc.Point ( 0, 0.5 ) );
-                this.addChild( this.charText, 3);
-                this.charText.setPosition( new cc.Point( 165,155 ) );
+                this.displayText();
                 
                 //Pic
-                this.textPic = cc.Sprite.create('images/dialogue/' + this.nameTree[this.point] + '.png' );
-                this.addChild( this.textPic, 1 );
-                this.textPic.setPosition( new cc.Point( 512, 200 ) );
+                this.displayPic();
                 
                 this.point++;
             }
@@ -73,6 +55,39 @@ var DialogueBox = cc.Node.extend({
             }
         }
         },
+    
+    cleanScreen : function ( ) {
+        
+        this.removeChild(this.charName);
+        this.removeChild(this.charText);
+        this.removeChild(this.textPic);
+        
+    },
+    
+    displayName : function() {
+    
+        this.charName = cc.LabelTTF.create( this.nameTree[this.point], 'Arial', 20 );
+        this.addChild( this.charName, 3);
+        this.charName.setPosition( new cc.Point( 512,175 ) );
+        
+    },
+    
+    displayText : function() {
+        
+        this.charText = cc.LabelTTF.create( this.textTree[this.point], 'Arial', 17.5 );
+        this.charText.setAnchorPoint( new cc.Point ( 0, 0.5 ) );
+        this.addChild( this.charText, 3);
+        this.charText.setPosition( new cc.Point( 275,135 ) );
+        
+    },
+    
+    displayPic : function() {
+        
+        this.textPic = cc.Sprite.create('images/dialogue/' + this.nameTree[this.point] + '.png' );
+        this.addChild( this.textPic, 1 );
+        this.textPic.setPosition( new cc.Point( 525, 200 ) );
+        
+    },
 
 });
 

@@ -10,9 +10,6 @@ var GameLayer = cc.Node.extend({
         this.background.setPosition ( new cc.Point (  screenWidth/2, screenHeight/2 ) ) ;
         this.addChild( this.background , 1 );
         
-    //  var as = ["a","b"]
-    //  var bs = ["c","d"]
-    //  this.DialogueBox = new DialogueBox(this, this.as , this.bs);
         
         //Player
         this.player = new Player();
@@ -21,7 +18,7 @@ var GameLayer = cc.Node.extend({
         this.player.scheduleUpdate();
         
         //Toybox
-        this.toyboxObject = new ToyboxObject();
+        this.toyboxObject = new ToyboxObject( this );
         this.toyboxObject.setPosition( new cc.Point( 60, 30) );
         this.toyboxLeftX = this.toyboxObject.getPosition().x - 40;
         this.toyboxRightX = this.toyboxObject.getPosition().x + 40;
@@ -35,7 +32,7 @@ var GameLayer = cc.Node.extend({
         this.addChild( this.volframObject , 2 );
         
         //Liel
-        this.lielObject = new LielObject();
+        this.lielObject = new LielObject( this );
         this.lielObject.setPosition( new cc.Point( 720, 175) );
         this.lielLeftX = this.lielObject.getPosition().x - 100;
         this.lielRightX = this.lielObject.getPosition().x - 20;
@@ -79,24 +76,13 @@ var GameLayer = cc.Node.extend({
           
         }
         
-//        else {
-//        
-//            console.log("In dialogue mode");
-//            this.volframObject.setPlayer( this.player );
-//            this.volframObject.setGameLayer( this );
-//            this.volframObject.handleKeyDown( e );
-//        
-//        }
     },
 
     onKeyUp: function( e ) {
         if(this.state == GameLayer.State.Walk)  {  
         this.player.handleKeyUp( e );
     }
-        
-    else {
-//      console.log("In dialogue mode");
-        }
+
     },
     
     getState : function() {
@@ -123,37 +109,68 @@ var GameLayer = cc.Node.extend({
         //Check Volfram
         
         if ( playerPos.x >= this.volframLeftX && playerPos.x <= this.volframRightX)  {
-         this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 375 ));
-         this.interactVolfram = true;
-         this.interactLiel = false;
-         this.interactToybox = false;
-         this.talkBox.setVisible(true);
+            
+            this.withVolfram();
+       
         }
     
         //Check Liel
         else if ( playerPos.x >= this.lielLeftX && playerPos.x <= this.lielRightX)  {
-         this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 375 ));
-         this.interactVolfram = false;
-         this.interactLiel = true;
-         this.interactToybox = false;
-         this.talkBox.setVisible(true);
+         
+            this.withLiel();
+            
         }
         
         //Check Toybox
         else if ( playerPos.x >= this.toyboxLeftX && playerPos.x <= this.toyboxRightX)  {
-         this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 375 ));
-         this.interactVolfram = false;
-         this.interactLiel = false;
-         this.interactToybox = true;
-         this.talkBox.setVisible(true);
+         
+            this.withToybox();
         }
         
         else {
+            
+            this.withNothing();
+        
+        }
+    },
+    
+    withVolfram: function(){
+        
+        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 375 ));
+        this.interactVolfram = true;
+        this.interactLiel = false;
+        this.interactToybox = false;
+        this.talkBox.setVisible(true);
+        
+    },
+    
+    withLiel: function(){
+    
+        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 375 ));
+        this.interactVolfram = false;
+        this.interactLiel = true;
+        this.interactToybox = false;
+        this.talkBox.setVisible(true);
+        
+    },
+    
+    withToybox: function(){
+        
+        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 375 ));
+        this.interactVolfram = false;
+        this.interactLiel = false;
+        this.interactToybox = true;
+        this.talkBox.setVisible(true);
+        
+    },
+    
+    withNothing: function(){
+    
         this.talkBox.setVisible(false);
         this.interactVolfram = false;
         this.interactLiel = false;
         this.interactToybox = false;
-        }
+        
     },
     
     checkWall: function() {
