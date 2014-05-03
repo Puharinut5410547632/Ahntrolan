@@ -248,6 +248,11 @@ var GameLayer = cc.Node.extend({
         this.player.moveRight = false;
     },
     
+    getPlayer: function( ){
+     
+        return this.player;
+    },
+    
 });
 
 

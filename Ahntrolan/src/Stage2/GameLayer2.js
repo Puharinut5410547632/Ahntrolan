@@ -3,7 +3,7 @@ var GameLayer2 = cc.Node.extend({
         
         this._super();
         
-        this.background = new Background2();
+        this.background = new Stage1( );
         this.background.setPosition ( new cc.Point (  screenWidth/2, screenHeight/2 ) ) ;
         this.addChild( this.background , 1 );
         

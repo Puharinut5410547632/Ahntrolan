@@ -6,10 +6,13 @@ var Game = cc.LayerColor.extend({
         this.scheduleUpdate();
         
         this.gameLayer = new GameLayer( this );
+ //       this.gameLayer = new GameLayer2( );
         this.gameLayer.setPosition ( new cc.Point (  0, 0 ) ) ;
         this.addChild( this.gameLayer );
         this.gameLayer.scheduleUpdate();
         
+//        this.player = this.gameLayer.getPlayer()
+//        this.camera.follow(this.player);
         
         this.setKeyboardEnabled( true );
         console.log( 'GameLayer created' );
@@ -25,6 +28,7 @@ var Game = cc.LayerColor.extend({
         this.gameLayer.setPosition ( new cc.Point (  0, 0 ) ) ;
         this.addChild( this.gameLayer );
         this.gameLayer.scheduleUpdate();
+            
             
     },
     

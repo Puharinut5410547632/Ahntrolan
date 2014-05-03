@@ -25,9 +25,15 @@ var ToyboxObject = cc.Sprite.extend({
             
             }
           
-           else if( ( point >=3 ) && ( this.convo4 == false ) ) {
+           else if( ( point >=3 ) && ( point < 5 ) && ( this.convo4 == false ) ) {
 
                 this.convo4A();    
+            
+            }
+          
+           else if( ( point >= 5 ) ) {
+
+                this.convo6A();    
             
             }
       }
@@ -83,6 +89,14 @@ var ToyboxObject = cc.Sprite.extend({
         
         //point = 4
         
+    },
+    
+     convo6A: function( ){
+      
+        var names = ["Enfys"];
+        var texts = ["Sadly, now isn't the time."];
+        
+        this.layer.createDialogueBox(names, texts);
     },
     
     setPlayer: function ( player ) {

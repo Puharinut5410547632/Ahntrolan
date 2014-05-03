@@ -1,7 +1,6 @@
 var g_resources = [
     
     //image
-    {src: 'images/enfys/placeholder1.png'},
     {src: 'images/enfys/Ewalkleft.png'},
     {src: 'images/enfys/Ewalkright.png'},
     {src: 'images/background/Int1Background.png'},
