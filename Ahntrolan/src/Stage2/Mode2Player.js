@@ -13,7 +13,7 @@ var Mode2Player = cc.Sprite.extend({
         
         this.layer = layer;
         //Directions
-        this.direction = Player.Direction.Right;
+        this.direction = Mode2Player.Direction.Right;
         this.moveLeft = false;
         this.moveRight = false;
         this.hitleftwall = false;
@@ -34,6 +34,7 @@ var Mode2Player = cc.Sprite.extend({
         //Hint to puzzle
         this.statueentconvo = false;
         
+        this.violet = Mode2Player.Puzzle.Red;
     },
     
         update: function() {
@@ -173,4 +174,11 @@ Mode2Player.Hitwall = {
 Mode2Player.Direction = {
     Right: 1,
     Left: 2
+};
+
+Mode2Player.Puzzle = {
+    Red : 1,
+    Blue: 2,
+    Green: 3,
+    Yellow: 4
 };

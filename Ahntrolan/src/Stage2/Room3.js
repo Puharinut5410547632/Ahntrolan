@@ -91,13 +91,13 @@ var Room3 = cc.Sprite.extend({
         
       //  console.log ("Initiate Dialogue");
         this.player.statueentconvo = true;
-        var names = ["Enfys", "Enfys", "Enfys", "Gwenette"
+        var names = ["Enfys", "Enfys", "Enfys", "Enfys", "Gwenette"
                      ];
-        var texts = ["Hmmm",
-                     "I remember seeing a strange statue beyond this track.",
+        var texts = ["Hmmm...",
+                     "If I remember correctly.",
+                     "There should be a strange statue beyond this track.",
                      "It might have something to do with the seal.",
-                     "Let's give it a look then."
-                     
+                     "Let's give it a look then."                     
                     ];
         
         this.layer.createDialogueBox(names, texts);

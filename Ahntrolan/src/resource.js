@@ -60,6 +60,10 @@ var g_resources = [
     {src: 'images/Stages/endpoint/9.png'},
     {src: 'images/Stages/endpoint/10.png'},
     {src: 'images/Stages/endpoint/11.png'},
+
+    //Color puzzle
+    
+    
     
     //cursor
     

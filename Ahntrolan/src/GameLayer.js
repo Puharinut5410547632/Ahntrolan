@@ -14,7 +14,7 @@ var GameLayer = cc.Node.extend({
         //Player
         this.player = new Player();
         this.player.setAnchorPoint( cc.p( 0, 0 ) );
-        this.player.setPosition( new cc.Point( 400, 40) );
+        this.player.setPosition( new cc.Point( 400, 30) );
         this.addChild( this.player , 3 );
         this.player.scheduleUpdate();
         
@@ -27,7 +27,7 @@ var GameLayer = cc.Node.extend({
 //        
         //Volfram
         this.volframObject = new VolframObject( this );
-        this.volframObject.setPosition( new cc.Point( 600, 110) );
+        this.volframObject.setPosition( new cc.Point( 600, 100) );
         this.volframLeftX = this.volframObject.getPosition().x - 100;
         this.volframRightX = this.volframObject.getPosition().x - 40;
         this.addChild( this.volframObject , 2 );

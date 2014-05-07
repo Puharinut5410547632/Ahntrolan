@@ -95,14 +95,14 @@ var Room2 = cc.Sprite.extend({
                      "Although the visual is small, it covers a huge range.",
                      "You either die, or get stuck in another dimension.",
                      "Please take the first step, Enfys.",
-                     "Only if you go first.",
+                     "Nah, the honor is yours, Volfram.",
                      "Standing here won't get us anywhere.",
                      "Let's try exploring the forest.",
                      "We might able to undo the seal somehow.",
                      "I once explored this forest.",
                      "I might be able to remember the path around here.",
                      "Just make sure to grab a pen and paper just in case.",
-                     "A map is crucial, after all.",
+                     "A map will help a lot.",
                      "I don't want to trust you, Enfys.",
                      "But I guess this is our only choice."
                     ];
