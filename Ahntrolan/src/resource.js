@@ -31,6 +31,10 @@ var g_resources = [
     //effect
     {src: 'sfx/se/dialogue.ogg'},
     {src: 'sfx/se/door.ogg'},
+    {src: 'sfx/se/sealbreak.ogg'},
+    {src: 'sfx/se/color.ogg'},
+    {src: 'sfx/se/ghost.ogg'},
+    {src: 'sfx/se/statue.ogg'},
     
     //Dialogue
     
@@ -39,6 +43,7 @@ var g_resources = [
     {src: 'sfx/dialogue/Volfram.ogg'},
     
     //stages
+    {src: 'images/Stages/end.png'},
     {src: 'images/Stages/Room/left.png'},
     {src: 'images/Stages/Room/leftright.png'},
     {src: 'images/Stages/Room/lefttopright.png'},
@@ -63,7 +68,34 @@ var g_resources = [
 
     //Color puzzle
     
+    {src: 'images/color/b1.png'},
+    {src: 'images/color/b2.png'},
+    {src: 'images/color/b3.png'},
+    {src: 'images/color/b4.png'},
     
+    {src: 'images/color/g1.png'},
+    {src: 'images/color/g2.png'},
+    {src: 'images/color/g3.png'},
+    {src: 'images/color/g4.png'},
+    
+    {src: 'images/color/r1.png'},
+    {src: 'images/color/r2.png'},
+    {src: 'images/color/r3.png'},
+    {src: 'images/color/r4.png'},
+    
+    {src: 'images/color/y1.png'},
+    {src: 'images/color/y2.png'},
+    {src: 'images/color/y3.png'},
+    {src: 'images/color/y4.png'},
+    
+    //Ghost
+    
+    {src: 'images/Ghost/1.png'},
+    {src: 'images/Ghost/2.png'},
+    {src: 'images/Ghost/3.png'},
+    {src: 'images/Ghost/4.png'},
+    {src: 'images/Ghost/5.png'},
+    {src: 'images/Ghost/6.png'},
     
     //cursor
     

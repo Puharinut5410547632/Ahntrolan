@@ -10,7 +10,6 @@ var Room5 = cc.Sprite.extend({
         this.hitleftwall = false;
         this.hitrightwall = false;
         this.goup = false;
-        this.godown = false;
         
         this.leftWallX = 0;
         this.rightWallX = 1150;
@@ -64,10 +63,25 @@ var Room5 = cc.Sprite.extend({
     
     handleKeyDown: function( e ) {
         
+          if ( Room5.KEYMAP[ e ] == 'action' ) {
+                
+         if(this.goup)   this.goUp( );
+                      
+                  }
+                      
+        
     },
     
-    
+      goUp: function() {
+        
+         this.background = new Room8(this.layer, this.player);
+    this.layer.changeStage(this.background, 545) ;
+        
+    },
         
 
 
  });
+
+Room5.KEYMAP = {}
+Room5.KEYMAP[cc.KEY.enter] = 'action';

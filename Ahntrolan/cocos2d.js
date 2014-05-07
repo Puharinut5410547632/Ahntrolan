@@ -41,7 +41,12 @@
             'src/stagefreezezonedetection.js',
             'src/Stage2/Mode2Player.js',
             'src/stage2/Center.js',
+            'src/stage2/End.js',
             'src/Stage2/Objects/EndPoint.js',
+            'src/Stage2/Objects/Ghost.js',
+            'src/Stage2/Objects/Color7.js',
+            'src/Stage2/Objects/Color11.js',
+            'src/Stage2/Objects/Color9.js',
             'src/objects/Cursor.js',
         ]
     };

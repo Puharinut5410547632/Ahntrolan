@@ -97,6 +97,14 @@ var GameLayer2 = cc.Node.extend({
         
     },
     
+    finishGame: function( background ){
+        
+        this.end = new End();
+        this.addChild(this.end, 6);
+        this.end.setPosition ( new cc.Point (  0, 0 ) ) ;
+        this.background.scheduleUpdate();
+        this.player.setPosition(new cc.Point ( this.position , 30) );
+    }
     
     });
 

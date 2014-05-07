@@ -9,7 +9,6 @@ var Room4 = cc.Sprite.extend({
         
         this.godown = false;
         this.talkstatue = false;
-        this.talkA = false;
         this.leftWallX = 300;
         this.rightWallX = 800;
         
@@ -71,7 +70,7 @@ var Room4 = cc.Sprite.extend({
     handleKeyDown: function( e ) {
 
             if ( Room4.KEYMAP[ e ] == 'action' ) {
-            console.log(this.talkstatue);
+                
              if(this.godown)   this.goDown( );
              if(this.talkstatue) this.convo();
                 
@@ -81,15 +80,16 @@ var Room4 = cc.Sprite.extend({
     
     convo : function ( ){
     
-        console.log("Convo is working");
-        if(this.talkA) this.convoB();
+        if(this.player.talkstatue) this.convoB();
         else this.convoA();
         
     },
     
     convoA : function ( ){
         
-        this.talkA = true;
+         cc.AudioEngine.getInstance().playEffect( 'sfx/se/statue.ogg' );
+        
+        this.player.talkstatue = true;
         var names = ["Enfys", "Enfys", "Statue", "Volfram", "Statue", "Statue",
                      "Enfys", "Enfys", "Liel", "Gwenette"
                      ];
@@ -97,10 +97,10 @@ var Room4 = cc.Sprite.extend({
                      "What's an angel statue doing in this place anyway?",
                      "Heed my call, those who seek power.",
                      "Great, it can speak.",
-                     "If you wish to break the seal, then prove thy worth",
-                     "Solve the puzzle and the way shall be opened.",
-                     "Damn, puzzle!",
-                     "I give up.",
+                     "Prove your worth",
+                     "Answer my people and the way shall open.",
+                     "Damn, a puzzle!",
+                     "I give up. Let's go home.",
                      "We just need to find these puzzles and answer them.",
                      "Let's get a move on and get this over quickly."
                     ];

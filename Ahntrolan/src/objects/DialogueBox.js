@@ -24,7 +24,7 @@ var DialogueBox = cc.Node.extend({
         
         this.shadow = cc.Sprite.create( 'images/Object/cursor/shadow.png' );
         this.addChild(this.shadow, 2);
-        this.shadow.setPosition (new cc.Point ( 857, 52 ) );
+        this.shadow.setPosition (new cc.Point ( 870, 52 ) );
             
         this.point = 0;
         

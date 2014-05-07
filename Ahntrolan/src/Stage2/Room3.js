@@ -79,17 +79,17 @@ var Room3 = cc.Sprite.extend({
     
     handleKeyDown: function( e ) {
         
-        if(this.goup) {
+        
         if ( Room3.KEYMAP[ e ] == 'action' ) {
                 
-            this.goUp( );
-            }
-    }
+         if(this.goup)   this.goUp( );
+           
+        }
+        
     },
 
       triggerConvo: function( ){
         
-      //  console.log ("Initiate Dialogue");
         this.player.statueentconvo = true;
         var names = ["Enfys", "Enfys", "Enfys", "Enfys", "Gwenette"
                      ];

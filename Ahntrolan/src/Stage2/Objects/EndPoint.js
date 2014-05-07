@@ -1,10 +1,7 @@
 var EndPoint = cc.Sprite.extend({
     ctor: function() {
-        this.vy = Player.STARTING_VELOCITY;
-        this.started = false;
         this._super();
         this.initWithFile( 'images/Stages/endpoint/1.png' );
-        this.convoStage = 0;
         this.movingAction = this.createAnimationAction();
         this.runAction( this.movingAction );
     },

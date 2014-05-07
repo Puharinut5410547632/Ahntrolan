@@ -19,22 +19,29 @@ var Mode2Player = cc.Sprite.extend({
         this.hitleftwall = false;
         this.hitrightwall = false;
         
-                //discover the seal
+        //discover the seal
         this.startEPconvo = false;
+        
+        //Seal broken
+        this.endEPconvo = false;
+        
         // end game open
         this.orbconvo = false;
-        // color puzzle
-        this.puzzlestartconvo = false;
+
         // Puzzle complete
-        this.puzzleendcovo = false;
-        //Cave Entrance convo
-        this.caveconvo = false;
-        //Split path to cave or cliff
-        this.pathconvo = false;
+        this.puzzleendconvo = false;
+
+
+        
         //Hint to puzzle
         this.statueentconvo = false;
         
-        this.violet = Mode2Player.Puzzle.Red;
+        //Talk to statue
+        this.talkstatue = false;
+        
+        this.room7 = Mode2Player.Puzzle.Red;
+        this.room9 = Mode2Player.Puzzle.Yellow;
+        this.room11 = Mode2Player.Puzzle.Green;
     },
     
         update: function() {
@@ -42,9 +49,32 @@ var Mode2Player = cc.Sprite.extend({
         //Walking left and right
             
        this.updateXMovement();
-        
+       if( this.puzzleendconvo == false ) this.checkTrigger();
 
     },
+    
+       checkTrigger: function() {
+     
+
+         if( (this.room7 == 4 ) && (this.room9 == 2) && (this.room11 == 1) ) this.triggerConvo();
+                                               
+    },
+    
+      triggerConvo: function( ){
+            cc.AudioEngine.getInstance().playEffect( 'sfx/se/sealbreak.ogg' );
+        this.puzzleendconvo = true;
+        var names = ["Volfram","Enfys", "Gwenette"
+                     ];
+        var texts = ["Did you hear that?",
+                     "I guess we did something right.",
+                     "Let's give it a look."
+                    ];
+        
+        this.layer.createDialogueBox(names, texts);
+        
+        
+    },
+    
     
     goRight: function() {
     

@@ -10,33 +10,68 @@ var Room2 = cc.Sprite.extend({
         this.foreground = cc.Sprite.create( 'images/Stages/Room2/f.png' );
         this.foreground.setAnchorPoint( cc.p( 0, 0 ) );
         this.addChild(this.foreground, 2);
+     
+
         
         this.endpoint = new EndPoint() ;
         this.endpoint.setAnchorPoint( cc.p( 0, 0 ) );
         this.addChild( this.endpoint, 1) ;
         this.endpoint.setPosition(new cc.Point( 460, 80) );
+        this.endpoint.setVisible(false);
+        if( this.player.puzzleendconvo == false ) this.endpoint.setVisible(true);
         
         this.hitleftwall = false;
         this.hitrightwall = false;
-        
+        this.goup = false;
         this.leftWallX = 0;
         this.rightWallX = 1150;
         
+         this.movebox = new TalkBox();
+        this.movebox.setAnchorPoint( cc.p( 0, 0 ) );
+        this.addChild( this.movebox , 4 );
+        this.movebox.setPosition( new cc.Point( 600, 325 ) );
+
+        this.movebox.setVisible(false);
 
     },
     
     update: function() {
+        
 
         if( this.player.hitLeftWall() ) this.goLeft();
         if ( this.player.hitRightWall() ) this.goRight();
-        if( this.player.startEPconvo == false ) this.checkTrigger();
+        this.checkTrigger();
+        this.checkbox();
+        
    },
+    
+     checkbox: function() {
+    
+        var pos = this.player.getPosition();
+        if( (pos.x >= 500) && (pos.x<= 650) && ( this.player.puzzleendconvo ) ) { this.movebox.setVisible(true); this.goup = true;}
+        else  this.noUp();
+        
+    },
+    
+    goUp: function() {
+        
+         this.layer.finishGame();
+        
+    },
+    
+    noUp: function() {
+     
+        this.movebox.setVisible(false);
+        this.goup = false;
+    },
+    
     
     checkTrigger: function() {
      
         var pos = this.player.getPosition()
-         if( (pos.x >= 300) && (pos.x <= 400) ) this.triggerConvo();
-                                               
+         if( (pos.x >= 300) && (pos.x <= 400) && (this.player.startEPconvo == false) ) this.triggerConvoA();
+         if( (pos.x >= 600) && (this.player.endEPconvo == false) &&  (this.player.puzzleendconvo) ) this.triggerConvoB();
+        
     },
     
       
@@ -57,11 +92,19 @@ var Room2 = cc.Sprite.extend({
  
     },
     
+
+    
     handleKeyDown: function( e ) {
+        
+            if ( Room2.KEYMAP[ e ] == 'action' ) {
+                
+         if(this.goup)   this.goUp( );
+           
+        }
         
     },
     
-    triggerConvo: function( ){
+    triggerConvoA: function( ){
         
         this.player.startEpConvoFinish();
         var names = ["Volfram", "Volfram","Enfys","Volfram","Enfys","Volfram",
@@ -79,12 +122,12 @@ var Room2 = cc.Sprite.extend({
                      "This must be the seal I once read about.",
                      "Care to explain?",
                      "We left Greenman's hill and entered Celentine forest.",
-                     "The forest was rumoured to house great magical item.",
+                     "The forest used to house a great magical item.",
                      "A powerful relic or some sort.",
                      "The relic was hidden and sealed to prevent misuse.",
                      "Something or someone must have triggered the seal.",
                      "Celentine forest was where the caravan was attacked.",
-                     "It must be the Gate of Deceit doing.",
+                     "It must be the Gate of Deceit's doing.",
                      "Either that or the item the caravan was carrying.",
                      "What now then?",
                      "This path leads to Richtofen castle.",
@@ -111,7 +154,29 @@ var Room2 = cc.Sprite.extend({
         
         
     },
+    
+     triggerConvoB: function( ){
+        
+        this.player.endEPconvo = true;
+        var names = ["Enfys",
+                     "Volfram",
+                     "Volfram",
+                     "Enfys"
+                     ];
+        var texts = ["The seal is gone!",
+                     "Let's get a move on.",
+                     "We have already wasted too much time here.",
+                     "Yes sir!"
+                    ];
+        
+        this.layer.createDialogueBox(names, texts);
+        
+        
+    },
         
   
 
  });
+                     
+Room2.KEYMAP = {}
+Room2.KEYMAP[cc.KEY.enter] = 'action';
