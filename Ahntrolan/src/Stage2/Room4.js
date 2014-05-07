@@ -4,13 +4,13 @@ var Room4 = cc.Sprite.extend({
         this.player = player;
         this.layer = layer;
         this._super();
-        this.initWithFile( 'images/Stages/Room/lefttopright.png' );
+        this.initWithFile( 'images/Stages/Room/down.png' );
         this.setAnchorPoint( cc.p( 0, 0 ) );
         
         this.godown = false;
         
         this.leftWallX = 300;
-        this.rightWallX = 900;
+        this.rightWallX = 800;
         
 
         this.talkBox = new TalkBox();
@@ -23,43 +23,38 @@ var Room4 = cc.Sprite.extend({
     update: function() {
 
         this.checkbox();
+        
    },
     
-     checkTrigger: function() {
-     
-         if( this.player.statueentconvo == false ) { var pos = this.player.getPosition()
-         if( (pos.x >= 400) && (pos.x <= 450) ) this.triggerConvo();
-                                               }
-    },
     
     checkbox: function() {
     
     var pos = this.player.getPosition();
-    if( (pos.x >= 500) && (pos.x<= 700) ) { this.talkbox.setVisible(true); this.goup = true;}
-    else  { this.talkbox.setVisible(false); this.goup = false;}
+    if( (pos.x >= 500) && (pos.x<= 650) ) {
+        this.talkBox.setVisible(true);
+        this.godown = true;
+    }
+    else  { this.talkBox.setVisible(false); this.godown = false;}
     
     },
     
-    
-    goRight: function() {
-     
-        console.log("Go right 5");
-    this.player.hitrightwall = false;
-    this.background = new Room5(this.layer, this.player);
-    this.layer.changeStage(this.background, 100) ;
- 
-    },
-    
-    goLeft: function() {
-        
-        console.log("Go left 2");
-    this.player.hitleftwall = false;
-    this.background = new Room2(this.layer, this.player);
-    this.layer.changeStage(this.background, 1050) ;
-        
-    },
     
     handleKeyDown: function( e ) {
+        
+        if(this.godown) {
+            
+            if ( Room4.KEYMAP[ e ] == 'action' ) {
+                
+                this.goDown( );
+                
+            }
+        }
+    },
+    
+    goDown: function() {
+        
+         this.background = new Room3(this.layer, this.player);
+    this.layer.changeStage(this.background, 545) ;
         
     },
 
@@ -84,3 +79,6 @@ var Room4 = cc.Sprite.extend({
 
 
  });
+
+Room4.KEYMAP = {}
+Room4.KEYMAP[cc.KEY.enter] = 'action';

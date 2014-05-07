@@ -65,6 +65,8 @@ var Room5 = cc.Sprite.extend({
     handleKeyDown: function( e ) {
         
     },
+    
+    
         
 
 

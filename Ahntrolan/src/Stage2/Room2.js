@@ -65,8 +65,8 @@ var Room2 = cc.Sprite.extend({
         
         this.player.startEpConvoFinish();
         var names = ["Volfram", "Volfram","Enfys","Volfram","Enfys","Volfram",
-                     "Liel", "Volfram", "Liel", "Liel", "Liel", "Liel", "Gwenette",
-                      "Gwenette", "Volfram", "Volfram", "Volfram", "Enfys", "Enfys",
+                     "Liel", "Volfram", "Liel", "Liel", "Liel", "Liel", "Liel", "Gwenette",
+                      "Gwenette", "Gwenette", "Volfram", "Volfram", "Volfram", "Enfys", "Enfys",
                       "Liel", "Liel", "Liel", "Volfram", "Enfys", "Gwenette", "Gwenette",
                       "Gwenette", "Enfys", "Enfys", "Enfys", "Enfys", "Volfram", "Volfram"
                      ];
@@ -78,12 +78,14 @@ var Room2 = cc.Sprite.extend({
                      "Next time, shut up.",
                      "This must be the seal I once read about.",
                      "Care to explain?",
-                     "We have left Greenman's hill and entered Celentine forest.",
-                     "The forest was rumoured to house great magical power.",
+                     "We left Greenman's hill and entered Celentine forest.",
+                     "The forest was rumoured to house great magical item.",
                      "A powerful relic or some sort.",
+                     "The relic was hidden and sealed to prevent misuse.",
                      "Something or someone must have triggered the seal.",
                      "Celentine forest was where the caravan was attacked.",
                      "It must be the Gate of Deceit doing.",
+                     "Either that or the item the caravan was carrying.",
                      "What now then?",
                      "This path leads to Richtofen castle.",
                      "We have to get through here somehow.",

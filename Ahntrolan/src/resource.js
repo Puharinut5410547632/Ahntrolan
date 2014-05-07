@@ -43,6 +43,7 @@ var g_resources = [
     {src: 'images/Stages/Room/leftright.png'},
     {src: 'images/Stages/Room/lefttopright.png'},
     {src: 'images/Stages/Room/right.png'},
+    {src: 'images/Stages/Room/down.png'},
     {src: 'images/Stages/Room2/b.png'},
     {src: 'images/Stages/Room2/f.png'},
     

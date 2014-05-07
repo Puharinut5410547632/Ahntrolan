@@ -34,7 +34,7 @@ var Room3 = cc.Sprite.extend({
      checkTrigger: function() {
      
          if( this.player.statueentconvo == false ) { var pos = this.player.getPosition()
-         if( (pos.x >= 400) && (pos.x <= 450) ) this.triggerConvo();
+         if( (pos.x >= 300) && (pos.x <= 400) ) this.triggerConvo();
                                                }
     },
     
@@ -70,8 +70,21 @@ var Room3 = cc.Sprite.extend({
         
     },
     
+    goUp: function() {
+        
+         this.background = new Room4(this.layer, this.player);
+    this.layer.changeStage(this.background, 545) ;
+        
+    },
+    
     handleKeyDown: function( e ) {
         
+        if(this.goup) {
+        if ( Room3.KEYMAP[ e ] == 'action' ) {
+                
+            this.goUp( );
+            }
+    }
     },
 
       triggerConvo: function( ){
