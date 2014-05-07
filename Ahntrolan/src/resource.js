@@ -3,6 +3,7 @@ var g_resources = [
     //image
     {src: 'images/enfys/Ewalkleft.png'},
     {src: 'images/enfys/Ewalkright.png'},
+    {src: 'images/background/Int1Backgroundplaceholder.png'},
     {src: 'images/background/Int1Background.png'},
     {src: 'images/Object/Idle Liel.png'},
     {src: 'images/Object/Idle Volfram.png'},
@@ -15,6 +16,8 @@ var g_resources = [
     {src: 'images/dialogue/Volfram.png'},
     {src: 'images/dialogue/Liel.png'},
     {src: 'images/dialogue/Gwenette.png'},
+    {src: 'images/background/Camera.png'},
+    
     //plist
  
     //fnt
@@ -22,8 +25,47 @@ var g_resources = [
     //tmx
  
     //bgm
-    {src: 'sfx/bgm/int1.mp3'},
-    {src: 'sfx/bgm/stage2.mp3'},
+    {src: 'sfx/bgm/int1.ogg'},
+    {src: 'sfx/bgm/stage2.ogg'},
+    
     //effect
-
+    {src: 'sfx/se/dialogue.ogg'},
+    {src: 'sfx/se/door.ogg'},
+    
+    //Dialogue
+    
+    {src: 'sfx/dialogue/Enfys.ogg'},
+    {src: 'sfx/dialogue/Liel.ogg'},
+    {src: 'sfx/dialogue/Volfram.ogg'},
+    
+    //stages
+    {src: 'images/Stages/Room/left.png'},
+    {src: 'images/Stages/Room/leftright.png'},
+    {src: 'images/Stages/Room/lefttopright.png'},
+    {src: 'images/Stages/Room/right.png'},
+    {src: 'images/Stages/Room2/b.png'},
+    {src: 'images/Stages/Room2/f.png'},
+    
+    //endpoint
+    
+    {src: 'images/Stages/endpoint/1.png'},
+    {src: 'images/Stages/endpoint/2.png'},
+    {src: 'images/Stages/endpoint/3.png'},
+    {src: 'images/Stages/endpoint/4.png'},
+    {src: 'images/Stages/endpoint/5.png'},
+    {src: 'images/Stages/endpoint/6.png'},
+    {src: 'images/Stages/endpoint/7.png'},
+    {src: 'images/Stages/endpoint/8.png'},
+    {src: 'images/Stages/endpoint/9.png'},
+    {src: 'images/Stages/endpoint/10.png'},
+    {src: 'images/Stages/endpoint/11.png'},
+    
+    //cursor
+    
+    {src: 'images/Object/cursor/1.png'},
+    {src: 'images/Object/cursor/2.png'},
+    {src: 'images/Object/cursor/3.png'},
+    {src: 'images/Object/cursor/4.png'},
+    {src: 'images/Object/cursor/shadow.png'},
+    
 ];

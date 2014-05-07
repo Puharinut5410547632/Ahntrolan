@@ -22,6 +22,7 @@ var LielObject = cc.Sprite.extend({
 
             else if( ( point >=1 ) && ( point <= 2 ) && ( this.convo2 == false ) ) {
 
+                cc.AudioEngine.getInstance().playEffect( 'sfx/dialogue/Liel.ogg' );
                 this.convo2A();    
             
             }
@@ -60,14 +61,15 @@ var LielObject = cc.Sprite.extend({
     
     convo2A: function( ){
       
-        var names = ["Enfys", "Liel", "Enfys", "Liel", "Enfys", "Liel", "Enfys", "Liel", "Enfys", "Liel", "Liel", "Liel",
+        var names = [//"Enfys",
+                     "Liel", "Enfys", "Liel", "Enfys", "Liel", "Enfys", "Liel", "Enfys", "Liel", "Liel", "Liel",
                      "Liel", "Liel", "Liel", "Liel", "Liel"];
-        var texts = ["Ey, Liel.",
+        var texts = [//"Ey, Liel.",
                      "Yes?",
                      "Volfram told me to come and bug you instead.",
                      "I'm sorry, Enfys. I'm kind of busy right now.",
                      "Busy with?",
-                     "Let's just say it will solve our finance issue.",
+                     "Let's just say it will solve our financial issue.",
                      "Let me guess, you're coding a job finder or something?",
                      "Exactly!",
                      "Do we really have to work?",
@@ -100,7 +102,7 @@ var LielObject = cc.Sprite.extend({
      
         var names = ["Enfys", "Liel", "Enfys", "Liel", "Liel", "Liel", "Liel", "Liel", "Enfys", "Enfys",
                      "Volfram", "Enfys", "Enfys", "Volfram", "Enfys", "Gwenette", "Liel", "Enfys", "Enfys",
-                     "Gwenette", "Gwenette", "Gwenette", "Gwenette", "Enfys" , "Volfram" ];
+                     "Gwenette", "Gwenette", "Gwenette", "Gwenette", "Enfys", "Volfram",  "Enfys" , "Volfram" ];
         var texts = ["Found anything yet?",
                      "Well...yes.",
                      "What is it?",
@@ -124,8 +126,10 @@ var LielObject = cc.Sprite.extend({
                      "It's the Gate of Deceit.",
                      "Our order is to retrieve the stolen item.",
                      "Avoid unnecessary bloodshed.",
+                     "Actually, I was asking about breakfast but yeah...",
+                     "It's too late to catch a caravan so it's best we leave soon.",
                      "I guess we will be passing through Greenman Hill then.",
-                     "It's too late to catch a caravan so it's best we leave soon."];
+                     "Talk to me when you're ready to leave."];
         
         this.layer.createDialogueBox(names, texts);
         this.convo6 = true;

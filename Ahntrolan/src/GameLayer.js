@@ -13,34 +13,35 @@ var GameLayer = cc.Node.extend({
         
         //Player
         this.player = new Player();
-        this.player.setPosition( new cc.Point( 400, 75) );
+        this.player.setAnchorPoint( cc.p( 0, 0 ) );
+        this.player.setPosition( new cc.Point( 400, 40) );
         this.addChild( this.player , 3 );
         this.player.scheduleUpdate();
         
         //Toybox
         this.toyboxObject = new ToyboxObject( this );
-        this.toyboxObject.setPosition( new cc.Point( 60, 30) );
-        this.toyboxLeftX = this.toyboxObject.getPosition().x - 40;
-        this.toyboxRightX = this.toyboxObject.getPosition().x + 60;
+        this.toyboxObject.setPosition( new cc.Point( 725, 0) );
+        this.toyboxLeftX = this.toyboxObject.getPosition().x - 100;
+        this.toyboxRightX = this.toyboxObject.getPosition().x;
         this.addChild( this.toyboxObject , 4 );
 //        
         //Volfram
         this.volframObject = new VolframObject( this );
-        this.volframObject.setPosition( new cc.Point( 270, 175) );
-        this.volframLeftX = this.volframObject.getPosition().x - 40;
-        this.volframRightX = this.volframObject.getPosition().x + 40;
+        this.volframObject.setPosition( new cc.Point( 600, 110) );
+        this.volframLeftX = this.volframObject.getPosition().x - 100;
+        this.volframRightX = this.volframObject.getPosition().x - 40;
         this.addChild( this.volframObject , 2 );
         
         //Liel
         this.lielObject = new LielObject( this );
-        this.lielObject.setPosition( new cc.Point( 720, 175) );
+        this.lielObject.setPosition( new cc.Point( 165  , 65) );
         this.lielLeftX = this.lielObject.getPosition().x - 100;
         this.lielRightX = this.lielObject.getPosition().x - 20;
         this.addChild( this.lielObject , 2 );
         
         //Talk box
         this.talkBox = new TalkBox();
-        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 375 ) );
+        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 325 ) );
         this.addChild( this.talkBox , 4 );
         this.talkBox.setVisible(false);
         
@@ -51,6 +52,8 @@ var GameLayer = cc.Node.extend({
         this.interactVolfram = false;
         this.interactLiel = false;
         this.interactToybox = false;
+        
+
         
     },
     
@@ -171,7 +174,7 @@ var GameLayer = cc.Node.extend({
     
     withVolfram: function(){
         
-        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 375 ));
+        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 325 ));
         this.interactVolfram = true;
         this.interactLiel = false;
         this.interactToybox = false;
@@ -181,7 +184,7 @@ var GameLayer = cc.Node.extend({
     
     withLiel: function(){
     
-        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 375 ));
+        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 325 ));
         this.interactVolfram = false;
         this.interactLiel = true;
         this.interactToybox = false;
@@ -191,7 +194,7 @@ var GameLayer = cc.Node.extend({
     
     withToybox: function(){
         
-        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 375 ));
+        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 325 ));
         this.interactVolfram = false;
         this.interactLiel = false;
         this.interactToybox = true;
@@ -240,7 +243,7 @@ var GameLayer = cc.Node.extend({
     },
     
     createDialogueBox: function(name, text) {
-     //   console.log(name[2]);
+
         this.dialogueBox = new DialogueBox(this, name, text);
         this.addChild( this.dialogueBox , 5 );
         this.setDialogueState();

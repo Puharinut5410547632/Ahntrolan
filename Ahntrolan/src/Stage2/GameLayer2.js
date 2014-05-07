@@ -3,56 +3,106 @@ var GameLayer2 = cc.Node.extend({
         
         this._super();
         
-        this.background = new Stage1( );
-        this.background.setPosition ( new cc.Point (  screenWidth/2, screenHeight/2 ) ) ;
-        this.addChild( this.background , 1 );
-        
+
         //Player
-        this.player = new Player();
-        this.player.setPosition( new cc.Point( 400, 75) );
+        this.player = new Mode2Player( this );
+        
+        this.background = new Room1( this, this.player );
+       
+        this.background.setPosition ( new cc.Point (  0, 0 ) ) ;
+        this.addChild( this.background , 1 );
+        this.background.scheduleUpdate();
+        
+        this.player.setPosition( new cc.Point( 400, 30) );
         this.addChild( this.player , 3 );
         this.player.scheduleUpdate();
-        console.Log(this.player.getPosition);
         
-        //Talk box
-        this.talkBox = new TalkBox();
-        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 375 ) );
-        this.addChild( this.talkBox , 4 );
-        this.talkBox.setVisible(false);
+        cc.AudioEngine.getInstance().playMusic( 'sfx/bgm/stage2.ogg', true );
         
         //State of the game
-        this.state = GameLayer.State.Walk;
+        this.state = GameLayer2.State.Walk;
         
     },
     
-      onKeyDown: function( e ) {
-          
-    if(this.state == GameLayer.State.Walk)  {  
+    onKeyDown: function( e ) {
         
-        this.player.handleKeyDown( e );
+        if(this.state == GameLayer2.State.Walk) { this.player.handleKeyDown( e );
+                                                  this.background.handleKeyDown( e );}
+        
+        else  if ( this.state == GameLayer2.State.Dialogue ) {
+        this.dialogueBox.handleKeyDown( e );
+          
+        }
       
-    }
     },
 
     onKeyUp: function( e ) {
         
-        if(this.state == GameLayer.State.Walk)  { 
-            
         this.player.handleKeyUp( e );
             
-    }
     },
     
-     checkWall: function() {
-          var playerPos = this.player.getPosition()
-        if(checkPlayerRightWallCollision(playerPos.x, this.background.rightWallX ))
-        this.player.hitrightwall = true;
-        else if (checkPlayerLeftWallCollision (playerPos.x, this.background.leftWallX ))
-        this.player.hitleftwall = true;
+    checkPlayerWall: function() {
         
-        else  this.player.noWall();
+        var playerPos = this.player.getPosition()
+          
+        if( checkPlayerRightWallCollision( playerPos.x, this.background.rightWallX ) )
+        { this.player.hitrightwall = true;}
+        
+        else if ( checkPlayerLeftWallCollision( playerPos.x, this.background.leftWallX ) )
+        {this.player.hitleftwall = true;}
+        
+        else  {this.player.noWall();}
     },
     
+    changeStage: function (stage, posx ) {
+        
+        this.position = posx;
+        this.removeChild(this.background);
+        this.background = stage;
+        this.addChild (this.background, 1);
+        this.background.setPosition ( new cc.Point (  0, 0 ) ) ;
+        this.background.scheduleUpdate();
+        this.player.setPosition(new cc.Point ( this.position , 30) );
+        
+        
+    },
+    
+    update: function() {
+        
+        //Check wall
+        
+        this.checkPlayerWall();
+    
+    },
+    
+    createDialogueBox: function(name, text) {
+
+        this.dialogueBox = new DialogueBox(this, name, text);
+        this.addChild( this.dialogueBox , 5 );
+        this.setDialogueState();
+        this.player.moveLeft = false;
+        this.player.moveRight = false;
+    },
+    
+     setDialogueState: function ( ) {
+
+        this.state = GameLayer2.State.Dialogue;
+
+    },
+    
+    setWalkState: function() {
+        
+        this.state = GameLayer2.State.Walk;
+        
+    },
     
     
     });
+
+
+GameLayer2.State = {
+    Walk: 1,
+    Dialogue: 2
+};
+

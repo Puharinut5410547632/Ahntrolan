@@ -19,7 +19,7 @@ var ToyboxObject = cc.Sprite.extend({
             }
 
 
-            else if( ( point >=3 ) && ( this.convo4 ) ) {
+            else if( ( point >=3 ) && (point < 5 ) && ( this.convo4 ) ) {
 
                 this.convo4B();    
             
@@ -27,6 +27,7 @@ var ToyboxObject = cc.Sprite.extend({
           
            else if( ( point >=3 ) && ( point < 5 ) && ( this.convo4 == false ) ) {
 
+                cc.AudioEngine.getInstance().playEffect( 'sfx/dialogue/Enfys.ogg' );
                 this.convo4A();    
             
             }
@@ -77,7 +78,7 @@ var ToyboxObject = cc.Sprite.extend({
     convo4B: function( ){
       
         var names = ["Enfys"];
-        var texts = ["Why do I even bother."];
+        var texts = ["Why do I even bother?"];
         
         this.layer.createDialogueBox(names, texts);
     },

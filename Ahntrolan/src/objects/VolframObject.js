@@ -27,7 +27,9 @@ var VolframObject = cc.Sprite.extend({
           //1a
             else if( ( point < 2 ) && ( this.convo1 == false ) ) {
                 
+                cc.AudioEngine.getInstance().playEffect( 'sfx/dialogue/Volfram.ogg' );
                 this.convo1A();
+                
 
             }
           
@@ -39,6 +41,7 @@ var VolframObject = cc.Sprite.extend({
           
             else if( ( point >= 2 ) && (point <= 3) && (this.convo3 == false) ) {
                 
+ 
                 this.convo3A();
             }
           
@@ -57,11 +60,12 @@ var VolframObject = cc.Sprite.extend({
           
           else if( ( point >= 6 ) ) {
                 
-                this.convo6A();
+              cc.AudioEngine.getInstance().playEffect( 'sfx/se/door.ogg' );
+              this.layer.getGame().changeLayer();
+            
               
             }
-          
-//        this.layer.getGame().changeLayer();
+                 
               
         
             }
@@ -70,9 +74,11 @@ var VolframObject = cc.Sprite.extend({
     
     convo1A: function( ){
                
-        var names = ["Enfys", "Volfram", "Enfys", "Enfys","Volfram","Volfram","Volfram","Volfram","Volfram", "Volfram",
+        var names = [//"Enfys", 
+                     "Volfram", "Enfys", "Enfys","Volfram","Volfram","Volfram","Volfram","Volfram", "Volfram",
                      "Enfys", "Enfys", "Enfys", "Enfys"];
-        var texts = ["Hey, Volfy!", "What is it this time?",
+        var texts = [//"Hey, Volfy!",
+                     "What is it this time?",
                      "I'm getting bored of waiting for Gwen.",
                      "Let's play or something.",
                      "Go bother Liel or something.",

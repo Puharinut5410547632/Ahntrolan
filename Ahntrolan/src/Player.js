@@ -104,10 +104,10 @@ var Player = cc.Sprite.extend({
     handleKeyDown: function( e ) {
         if ( Player.KEYMAP[ e ] != undefined ) {
             
-            if ( Player.KEYMAP[ e ] == 'check' ) console.log(this.convoPoint);
-           else this[ Player.KEYMAP[ e ] ] = true;
+            this[ Player.KEYMAP[ e ] ] = true;
+            
         }
-     
+
     },
 
     handleKeyUp: function( e ) {
