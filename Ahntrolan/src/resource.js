@@ -1,5 +1,34 @@
 var g_resources = [
     
+    
+    //Enfys
+    {src: 'images/enfys/Ewalkleft.png'},
+    {src: 'images/enfys/Ewalkright.png'},
+    
+    {src: 'images/enfys/l1.png'},
+    {src: 'images/enfys/l2.png'},
+    {src: 'images/enfys/l3.png'},
+    {src: 'images/enfys/l4.png'},
+    {src: 'images/enfys/l5.png'},
+    {src: 'images/enfys/l6.png'},
+    {src: 'images/enfys/l7.png'},
+    {src: 'images/enfys/l8.png'},
+    {src: 'images/enfys/l9.png'},
+    {src: 'images/enfys/l10.png'},
+    {src: 'images/enfys/l11.png'},
+    
+    {src: 'images/enfys/r1.png'},
+    {src: 'images/enfys/r2.png'},
+    {src: 'images/enfys/r3.png'},
+    {src: 'images/enfys/r4.png'},
+    {src: 'images/enfys/r5.png'},
+    {src: 'images/enfys/r6.png'},
+    {src: 'images/enfys/r7.png'},
+    {src: 'images/enfys/r8.png'},
+    {src: 'images/enfys/r9.png'},
+    {src: 'images/enfys/r10.png'},
+    {src: 'images/enfys/r11.png'},
+    
     //image
     {src: 'images/enfys/Ewalkleft.png'},
     {src: 'images/enfys/Ewalkright.png'},

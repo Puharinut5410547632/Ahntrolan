@@ -21,22 +21,22 @@ var GameLayer = cc.Node.extend({
         //Toybox
         this.toyboxObject = new ToyboxObject( this );
         this.toyboxObject.setPosition( new cc.Point( 725, 0) );
-        this.toyboxLeftX = this.toyboxObject.getPosition().x - 100;
-        this.toyboxRightX = this.toyboxObject.getPosition().x;
+        this.toyboxLeftX = this.toyboxObject.getPosition().x - 70;
+        this.toyboxRightX = this.toyboxObject.getPosition().x + 40;
         this.addChild( this.toyboxObject , 4 );
 //        
         //Volfram
         this.volframObject = new VolframObject( this );
         this.volframObject.setPosition( new cc.Point( 600, 100) );
-        this.volframLeftX = this.volframObject.getPosition().x - 100;
-        this.volframRightX = this.volframObject.getPosition().x - 40;
+        this.volframLeftX = this.volframObject.getPosition().x - 70;
+        this.volframRightX = this.volframObject.getPosition().x + 10;
         this.addChild( this.volframObject , 2 );
         
         //Liel
         this.lielObject = new LielObject( this );
         this.lielObject.setPosition( new cc.Point( 165  , 65) );
         this.lielLeftX = this.lielObject.getPosition().x - 100;
-        this.lielRightX = this.lielObject.getPosition().x - 20;
+        this.lielRightX = this.lielObject.getPosition().x +40;
         this.addChild( this.lielObject , 2 );
         
         //Talk box
@@ -174,7 +174,7 @@ var GameLayer = cc.Node.extend({
     
     withVolfram: function(){
         
-        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 325 ));
+        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+35, 325 ));
         this.interactVolfram = true;
         this.interactLiel = false;
         this.interactToybox = false;
@@ -184,7 +184,7 @@ var GameLayer = cc.Node.extend({
     
     withLiel: function(){
     
-        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 325 ));
+        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+35, 325 ));
         this.interactVolfram = false;
         this.interactLiel = true;
         this.interactToybox = false;
@@ -194,7 +194,7 @@ var GameLayer = cc.Node.extend({
     
     withToybox: function(){
         
-        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+75, 325 ));
+        this.talkBox.setPosition( new cc.Point( this.player.getPosition().x+35, 325 ));
         this.interactVolfram = false;
         this.interactLiel = false;
         this.interactToybox = true;
