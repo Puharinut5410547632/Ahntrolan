@@ -4,7 +4,7 @@ var Background = cc.Sprite.extend({
         this.initWithFile( 'images/background/Int1Background.png' );
         
         this.leftWallX = 0;
-        this.rightWallX = 1000;
+        this.rightWallX = 1150;
         
      cc.AudioEngine.getInstance().playMusic( 'sfx/bgm/int1.ogg', true );
         

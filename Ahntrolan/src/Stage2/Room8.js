@@ -121,13 +121,17 @@ var Room8 = cc.Sprite.extend({
     
             cc.AudioEngine.getInstance().playEffect( 'sfx/se/ghost.ogg' );
         
-            var names = ["Ghost", "Ghost", "Ghost", "Ghost"
+            var names = ["Ghost", "Ghost", "Ghost", "Ghost", "Ghost", "Ghost", "Ghost", "Ghost"
                         ];
             
             var texts = ["From coals to diamonds.",
-                         "The gem hold their edge.",
+                         "The gem hold their edges.",
                          "Brilliantly, with clarity",
-                         "And sapphire divinity."
+                         "And sapphire divinity.",
+                         "Blessed by the divine,",
+                         "They are nothing more than glass.",
+                         "Facing unblemished power.",
+                         "They shall be crushed.",
 
                         ];
         

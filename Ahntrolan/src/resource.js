@@ -29,6 +29,16 @@ var g_resources = [
     {src: 'images/enfys/r10.png'},
     {src: 'images/enfys/r11.png'},
     
+    {src: 'images/enfys/wl1.png'},
+    {src: 'images/enfys/wl2.png'},
+    {src: 'images/enfys/wl3.png'},
+    {src: 'images/enfys/wl4.png'},
+    
+    {src: 'images/enfys/rl1.png'},
+    {src: 'images/enfys/rl2.png'},
+    {src: 'images/enfys/rl3.png'},
+    {src: 'images/enfys/rl4.png'},
+    
     //image
     {src: 'images/enfys/Ewalkleft.png'},
     {src: 'images/enfys/Ewalkright.png'},

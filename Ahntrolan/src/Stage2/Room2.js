@@ -166,7 +166,7 @@ var Room2 = cc.Sprite.extend({
         var texts = ["The seal is gone!",
                      "Let's get a move on.",
                      "We have already wasted too much time here.",
-                     "Yes sir!"
+                     "Yes, sir!"
                     ];
         
         this.layer.createDialogueBox(names, texts);

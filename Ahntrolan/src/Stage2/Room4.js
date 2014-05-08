@@ -97,7 +97,7 @@ var Room4 = cc.Sprite.extend({
                      "What's an angel statue doing in this place anyway?",
                      "Heed my call, those who seek power.",
                      "Great, it can speak.",
-                     "Prove your worth",
+                     "Prove your worth!",
                      "Answer my people and the way shall open.",
                      "Damn, a puzzle!",
                      "I give up. Let's go home.",

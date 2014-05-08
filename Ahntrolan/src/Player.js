@@ -55,9 +55,14 @@ var Player = cc.Sprite.extend({
         
        else if( (this.vx == 0) && (this.direction == 2) && (this.sprite != 2) )this.animateStandLeft(); 
         
+        //run left
+        
+        else if( (this.vx != 0) && (this.direction == 2) && (this.sprite != 3) )this.animateLeftWalk(); 
+        
         //run right
         
-        //run left
+        else if( (this.vx != 0) && (this.direction == 1) && (this.sprite != 4) )this.animateRightWalk(); 
+        
     },
     
     animateStandRight: function( ){
@@ -72,6 +77,22 @@ var Player = cc.Sprite.extend({
         
         this.stopAction(this.movingAction);
         this.movingAction = this.leftStand(); 
+        this.runAction( this.movingAction );
+        
+    },
+    
+     animateLeftWalk: function( ){
+        
+        this.stopAction(this.movingAction);
+        this.movingAction = this.leftWalk(); 
+        this.runAction( this.movingAction );
+        
+    },
+    
+         animateRightWalk: function( ){
+        
+        this.stopAction(this.movingAction);
+        this.movingAction = this.rightWalk(); 
         this.runAction( this.movingAction );
         
     },
@@ -126,16 +147,52 @@ var Player = cc.Sprite.extend({
         
     },
     
+        leftWalk: function( ){
+        
+        this.sprite = 3;
+        
+        var animation = new cc.Animation.create();
+        
+        animation.addSpriteFrameWithFile( 'images/enfys/wl1.png' );
+        animation.addSpriteFrameWithFile( 'images/enfys/wl2.png' );
+        animation.addSpriteFrameWithFile( 'images/enfys/wl3.png' );
+        animation.addSpriteFrameWithFile( 'images/enfys/wl4.png' );
+          
+
+        animation.setDelayPerUnit( 0.25 );
+        
+	return cc.RepeatForever.create( cc.Animate.create( animation ) );
+        
+    },
+    
+      rightWalk: function( ){
+        
+        this.sprite = 4;
+        
+        var animation = new cc.Animation.create();
+        
+        animation.addSpriteFrameWithFile( 'images/enfys/wr1.png' );
+        animation.addSpriteFrameWithFile( 'images/enfys/wr2.png' );
+        animation.addSpriteFrameWithFile( 'images/enfys/wr3.png' );
+        animation.addSpriteFrameWithFile( 'images/enfys/wr4.png' );
+          
+
+        animation.setDelayPerUnit( 0.25 );
+        
+	return cc.RepeatForever.create( cc.Animate.create( animation ) );
+        
+    },
+    
 
     goRight: function() {
         
         var pos = this.getPosition();
         
-        this.initWithFile( 'images/enfys/Ewalkright.png' );
-        this.setAnchorPoint( cc.p( 0, 0 ) );
+ //       this.initWithFile( 'images/enfys/Ewalkright.png' );
+   //     this.setAnchorPoint( cc.p( 0, 0 ) );
             
         if(this.hitrightwall) this.vx = 0;
-        else this.vx = 7;
+        else this.vx = 5;
 
             this.setPosition( new cc.Point( pos.x + this.vx, pos.y ) );
         
@@ -146,11 +203,11 @@ var Player = cc.Sprite.extend({
  
         var pos = this.getPosition();
         
-        this.initWithFile( 'images/enfys/Ewalkleft.png' );
-        this.setAnchorPoint( cc.p( 0, 0 ) );
+  //      this.initWithFile( 'images/enfys/Ewalkleft.png' );
+  //     this.setAnchorPoint( cc.p( 0, 0 ) );
     
         if(this.hitleftwall)  this.vx = 0;
-        else this.vx = 7;
+        else this.vx = 5;
 
             
             this.setPosition( new cc.Point( pos.x - this.vx, pos.y ) );
@@ -160,6 +217,7 @@ var Player = cc.Sprite.extend({
     standStill: function() {
         
         this.vx = 0;
+        this.animate();
     
     },
     
@@ -186,6 +244,7 @@ var Player = cc.Sprite.extend({
         else if((this.moveleft && this.moveRight) || (!this.moveleft && !this.moveRight)) {
          
             this.standStill();
+
             
         }
     },
